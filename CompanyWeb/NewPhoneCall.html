@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>New Phone Call - DocDbTraining CRM</title>
+    <meta charset="utf-8" />
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <link href="Content/bootstrap-theme.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <h1>
+                <img src="Content/Images/companylogo_64.png" />CRM
+            </h1>
+            <ul class="breadcrumb">
+                <li>
+                    <a href="Index.html">Home</a>
+                </li>
+                <li>
+                    <a href="CRM.html">CRM</a>
+                </li>
+                <li>New Phone Call</li>
+            </ul>
+        </div>
+        <div class="row well">
+            <form class="form-horizontal new-phone-call" method="post" action="http://localhost:6074/api/PhoneCall/NewPhoneCall">
+                <div class="form-group">
+                    <label for="CustomerInfo.Name" class="col-sm-2 control-label">Customer Name</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" name="CustomerInfo.Name" placeholder="Customer Name">
+                    </div>
+                    <label for="CustomerInfo.Name" class="col-sm-1 control-label">E-Mail</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" name="CustomerInfo.EMail" placeholder="EMail">
+                    </div>
+                    <div class="col-sm-1">
+                        &nbsp;
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Products[0].Product" class="col-sm-2 control-label">New Product</label>
+                    <div class="col-sm-4">
+                        <select class="form-control" name="Products[0].Product" placeholder="Product">
+                            <option value="" selected></option>
+                            <option value="Product A">Product A</option>
+                            <option value="Product B">Product B</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" name="Products[0].Info" placeholder="Product Info">
+                    </div>
+                    <div class="col-sm-1">
+                        &nbsp;
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Support[0].Details" class="col-sm-2 control-label">Support</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="Support0_Details" name="Support[0].Details" placeholder="Details">
+                    </div>
+                    <div class="col-sm-1">
+                        &nbsp;
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-9">
+                        <a href="#" class="btn btn-default send">Send</a>
+                    </div>
+                    <div class="col-sm-1">
+                        &nbsp;
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="Scripts/jquery-2.2.3.js"></script>
+    <script src="Scripts/bootstrap.js"></script>
+    <script type="text/javascript">
+
+        $("form.new-phone-call").submit(function () {
+            window.open("CRM.html");
+        });
+
+        $("a.btn.send").click(function () {
+            var result = $("form.new-phone-call").submit();
+        });
+    </script>
+</body>
+</html>

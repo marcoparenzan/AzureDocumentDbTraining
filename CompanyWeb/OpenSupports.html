@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Close Support - DocDbTraining Support</title>
+    <meta charset="utf-8" />
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <link href="Content/bootstrap-theme.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <h1>
+                <img src="Content/Images/companylogo_64.png" />Support
+            </h1>
+            <ul class="breadcrumb">
+                <li>
+                    <a href="Index.html">Home</a>
+                </li>
+                <li>
+                    <a href="Support.html">Support</a>
+                </li>
+                <li>Open Supports</li>
+            </ul>
+        </div>
+        <div class="row">
+            <table class="table table-striped open-supports">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Opened</th>
+                        <th>Customer</th>
+                        <th>E-Mail</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="Scripts/jquery-2.2.3.js"></script>
+    <script src="Scripts/bootstrap.js"></script>
+    <script type="text/javascript">
+
+        $.ajax({
+            type: 'get',
+            crossDomain: true,
+            url: 'http://localhost:6075/api/Support/OpenSupports'
+        }).done(function (results) {
+            var tbody = $("table.open-supports > tbody");
+            $.each(results, function (i, item) {
+                var openDate = new Date(item.OpenDate);
+                tbody.append("<tr><td>" + item.SupportId + "</td><td>" + openDate.toDateString() + "<br/>" + openDate.toLocaleTimeString() + "</td><td>" + item.CustomerName + "</td><td>" + item.CustomerEMail + "</td><td>" + item.Details + "</td></tr>")
+            });
+        });
+
+    </script>
+</body>
+</html>

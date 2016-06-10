@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Close Phone Call - DocDbTraining CRM</title>
+    <meta charset="utf-8" />
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <link href="Content/bootstrap-theme.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <h1>
+                <img src="Content/Images/companylogo_64.png" />CRM
+            </h1>
+            <ul class="breadcrumb">
+                <li>
+                    <a href="Index.html">Home</a>
+                </li>
+                <li>
+                    <a href="CRM.html">CRM</a>
+                </li>
+                <li>Close Phone Call</li>
+            </ul>
+        </div>
+        <div class="row well">
+            <form class="form-horizontal close-phone-call" method="post" action="http://localhost:6074/api/PhoneCall/ClosePhoneCall">
+                <div class="form-group">
+                    <label for="PhoneCallId" class="col-sm-2 control-label">Phone Call Id</label>
+                    <div class="col-sm-4">
+                        <input type="text" name="PhoneCallId" value="" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-9">
+                        <a href="#" class="btn btn-default send">Send</a>
+                    </div>
+                    <div class="col-sm-1">
+                        &nbsp;
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="Scripts/jquery-2.2.3.js"></script>
+    <script src="Scripts/bootstrap.js"></script>
+    <script type="text/javascript">
+
+        $("form.close-phone-call").submit(function () {
+            window.open("CRM.html");
+        });
+
+        $("a.btn.send").click(function () {
+            var result = $("form.close-phone-call").submit();
+        });
+    </script>
+</body>
+</html>
